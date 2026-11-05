@@ -44,7 +44,7 @@ show_menu() {
     echo "       MANAGEMENT MENU"
     echo "=================================="
     echo ""
-    echo "  DOCKER"
+    echo "  DOCKER (requires sudo)"
     echo "  1. Build Docker Image"
     echo "  2. Deploy Application"
     echo "  3. Validate Deployment"
