@@ -3,8 +3,8 @@
 set -uo pipefail
 
 POD_NAME="containers-capstone-pod"
-DB_CONTAINER="capstone-db"
-WEB_CONTAINER="capstone-web"
+DB_CONTAINER="containers-capstone-pod-capstone-db"
+WEB_CONTAINER="containers-capstone-pod-capstone-web"
 
 BASE_URL="${BASE_URL:-http://localhost:5003}"
 

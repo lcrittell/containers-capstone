@@ -38,3 +38,7 @@ echo "=================================="
 echo "Image: $IMAGE:$VERSION"
 
 podman images "$IMAGE"
+
+echo "Tagging image"
+
+podman tag "localhost/containers-capstone:$VERSION" "quay.io/lccrittell/containers-capstone:podman"

@@ -7,6 +7,7 @@ echo "You have selected $app"
 break
 done
 
+#decide port based on platform
 PORT=""
 if [[ $app = "Docker" ]]; then
     PORT="5001"

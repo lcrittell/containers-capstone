@@ -8,7 +8,6 @@ PROJECT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
 # Locate the automation scripts
 SCRIPTS_DIR="$PROJECT_DIR/scripts"
 
-# Run a selected script and report its result
 run_script() {
     local script_name="$1"
     shift
@@ -35,7 +34,6 @@ run_script() {
     read -rp "Press Enter to return to the menu..."
 }
 
-# Display the main menu
 show_menu() {
     clear
 
@@ -51,15 +49,17 @@ show_menu() {
     echo "  4. Cleanup Deployment"
     echo ""
     echo "  REGISTRY"
-    echo "  5. Publish Image to Quay"
+    echo "  5. Publish Docker Image to Quay"
     echo ""
     echo "  PODMAN"
     echo "  6. Build Podman Image"
-    echo "  7. Deploy Podman Application"
-    echo "  8. Validate Podman Deployment"
-    echo "  9. Cleanup Podman Deployment"
+    echo "  7. Deploy Podman Application (play kube)"
+    echo "  8. Deploy Podman Application (manual)"
+    echo "  9. Validate Podman Deployment"
+    echo "  10. Cleanup Podman Deployment"
+    echo "  11. Push Podman image"
     echo ""
-    echo "  10. Exit"
+    echo "  12. Exit"
     echo ""
     echo "=================================="
 }
@@ -105,12 +105,20 @@ while true; do
             run_script "podman-deploy.sh" "$version"
             ;;
         8)
-            run_script "podman-validate.sh"
+            read -rp "Enter image version to deploy [1.0.0] " version
+            version="${version:-1.0.0}"
+            run_script "podman-deploy-manual.sh" "$version"
             ;;
         9)
-            run_script "podman-cleanup.sh"
+            run_script "podman-validate.sh"
             ;;
         10)
+            run_script "podman-cleanup.sh"
+            ;;
+        11)
+            run_script "podman-publish.sh"
+            ;;
+        12)
             echo ""
             echo "Exiting Containers Capstone Manager."
             exit 0
