@@ -47,8 +47,6 @@ show_menu() {
     echo "  2. Deploy Application"
     echo "  3. Validate Deployment"
     echo "  4. Cleanup Deployment"
-    echo ""
-    echo "  REGISTRY"
     echo "  5. Publish Docker Image to Quay"
     echo ""
     echo "  PODMAN"
@@ -57,7 +55,7 @@ show_menu() {
     echo "  8. Deploy Podman Application (manual)"
     echo "  9. Validate Podman Deployment"
     echo "  10. Cleanup Podman Deployment"
-    echo "  11. Push Podman image"
+    echo "  11. Publish Podman Image to Quay"
     echo ""
     echo "  12. Exit"
     echo ""
@@ -121,6 +119,7 @@ while true; do
         12)
             echo ""
             echo "Exiting Containers Capstone Manager."
+            clear
             exit 0
             ;;
         *)

@@ -17,7 +17,7 @@ app = Flask(__name__)
 
 @app.get("/")
 def index():
-    return jsonify(message="Flask application running; check /health to see if postgresql is running", test="hi")
+    return jsonify(message="Flask application running; check /health to see if postgresql is running")
 
 @app.get("/health")
 def health():
